@@ -11,7 +11,7 @@
 This project is a browser game.  
 The main purpose of this game is to guess which color is shown in RGB values.  
 RGB(#, #, #) stands for red, green and blue saturation from 0 to 255.  
-The player is being shown 3 or 6 (depending on the difficulty mode) squares, from which he is suppose to chose the right one.  
+The player is being shown 3 or 6 (depending on the difficulty mode) squares, from which he is supposed to choose the right one.  
 RGB values are randomized.
 	
 ## Technologies
