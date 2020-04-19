@@ -13,9 +13,9 @@ body
 @font-face {
     font-family: 'Avenir Next Rounded Std';
     src: local('Avenir Next Rounded Std Regular'), local('Avenir-Next-Rounded-Std-Regular'),
-        url('15.2 Color Game_files/AvenirNextRoundedStd-Reg.woff2') format('woff2'),
-        url('15.2 Color Game_files/AvenirNextRoundedStd-Reg.woff') format('woff'),
-        url('15.2 Color Game_files/AvenirNextRoundedStd-Reg.ttf') format('truetype');
+        url('index_files/AvenirNextRoundedStd-Reg.woff2') format('woff2'),
+        url('index_files/AvenirNextRoundedStd-Reg.woff') format('woff'),
+        url('index_files/AvenirNextRoundedStd-Reg.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
   }
