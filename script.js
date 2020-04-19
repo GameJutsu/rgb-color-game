@@ -1,39 +1,46 @@
 NodeList.prototype.indexOf = Array.prototype.indexOf;
+var colors;
+var pickedColor;
 var difficulty = 6;
 var bgcolor = document.body.style.backgroundColor;
-var pickedColor;
+var root = document.documentElement;
+var defColor = getComputedStyle(root).getPropertyValue("--defColor");
 var squares = document.querySelectorAll(".square");
-var colors;
 var message = document.querySelector("#message");
 var playAgainButton = document.querySelector("#playAgainButton");
-var easyButton = document.querySelector("#easyButton");
-var hardButton = document.querySelector("#hardButton");
+var modeButtons = document.querySelectorAll(".mode");
 
-hardButton.classList.add("selected");
+init();
 
-playAgain();
-
-playAgainButton.addEventListener("click", playAgain);
-
-easyButton.addEventListener("click", function()
+function init()
 {
-	this.classList.add("selected");
-	hardButton.classList.remove("selected");
-	difficulty = 3;
+	modeButtons[1].classList.add("selected");
+	playAgainButton.addEventListener("click", playAgain);
+	setupModeButtons();
 	playAgain();
-	for(var i=3; i < squares.length; i++)
+}
+
+function setupModeButtons()
+{
+	for(var i = 0; i < 2; i++)
 	{
-		squares[i].style.backgroundColor = "#232323";
+		modeButtons[i].addEventListener("click", function()
+		{
+			this.classList.add("selected");
+	 	//Using indexOf because i changes to 2 after loading
+	 	modeButtons[1 - (modeButtons.indexOf(this))].classList.remove("selected");
+	 	difficulty = 3 + (3 * modeButtons.indexOf(this));
+	 	playAgain();
+	 	if(modeButtons.indexOf(this) == 0)
+	 	{
+	 		for(var j = 3; j < squares.length; j++)
+	 		{
+	 			squares[j].style.backgroundColor = bgcolor;
+	 		}
+	 	}
+	 });
 	}
-});
-
-hardButton.addEventListener("click", function()
-{
-	this.classList.add("selected");
-	easyButton.classList.remove("selected");
-	difficulty = 6;
-	playAgain();
-})
+}
 
 function pickRandom(min, max)
 {
@@ -50,16 +57,8 @@ function generateRandomColors(difficulty)
 	return colors;
 }
 
-function playAgain()
+function setupSquares()
 {
-	playAgainButton.style.color = "";
-	easyButton.style.color = "";
-	hardButton.style.color = "";
-	playAgainButton.textContent = "New Colors";
-	document.querySelector("h1").style.backgroundColor = "steelblue";
-	message.textContent = "";
-	colors = generateRandomColors(difficulty);
-	pickedColor = colors[pickRandom(0, difficulty - 1)];
 	for(var i=0; i < difficulty; i++)
 	{
 		squares[i].style.backgroundColor = colors[i];
@@ -73,23 +72,64 @@ function playAgain()
 					{
 						squares[i].style.backgroundColor = pickedColor;
 					}
-					message.textContent = "Correct";
+					message.textContent = "Correct!";
 					message.style.color = "green";
 					document.querySelector("h1").style.backgroundColor = pickedColor;
-					playAgainButton.style.color = pickedColor;
-					easyButton.style.color = pickedColor;
-					hardButton.style.color = pickedColor;
+					// playAgainButton.style.color = pickedColor;
+					// modeButtons[(difficulty - 3) / 3].style.backgroundColor = pickedColor;
+					// modeButtons[1 - (difficulty - 3) / 3].style.color = pickedColor;
 					playAgainButton.textContent = "Play Again";
+					document.querySelectorAll(".hover").forEach(function(el)
+					{
+						el.style.setProperty("--hoverColor", pickedColor);
+					});
+					document.querySelectorAll("button").forEach(function(el, i)
+					{
+						el.style.setProperty("--buttonColor", pickedColor);
+						if(i == ((difficulty - 3) / 3) + 1)
+						{
+							el.style.backgroundColor = pickedColor;
+						}
+					});
 				}
 				else
 				{
-					this.style.backgroundColor = "#232323";
+					this.style.backgroundColor = bgcolor;
 					message.textContent = "Try Again";
 					message.style.color = "red";
 					playAgainButton.textContent = "New Colors";	
 				}
 			}
-		})
+		});
 	}
+}
+
+function playAgain()
+{
+	// playAgainButton.style.color = "";
+	// modeButtons[(difficulty - 3) / 3].style.backgroundColor = "";
+	// modeButtons[1 - (difficulty - 3) / 3].style.color = "";
+	document.querySelectorAll(".hover").forEach(function(el)
+	{
+		el.style.setProperty("--hoverColor", defColor);
+	});
+	document.querySelectorAll("button").forEach(function(el, i)
+	{
+		el.style.setProperty("--buttonColor", defColor);
+		if(i == ((difficulty - 3) / 3) + 1)
+		{
+			el.style.backgroundColor = defColor;
+		}
+		else
+		{
+			el.style.backgroundColor = "";
+		}
+	});
+	playAgainButton.textContent = "New Colors";
+	document.querySelector("h1").style.backgroundColor = "";
+	message.textContent = "";
+	colors = generateRandomColors(difficulty);
+	pickedColor = colors[pickRandom(0, difficulty - 1)];
+	setupSquares();
 	document.querySelector("#colorDisplay").textContent = pickedColor.toUpperCase();
 }

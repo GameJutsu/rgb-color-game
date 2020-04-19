@@ -1,3 +1,7 @@
+:root
+{
+	--defColor: steelblue;
+}
 body
 {
 	background-color: #232323;
@@ -9,9 +13,9 @@ body
 @font-face {
     font-family: 'Avenir Next Rounded Std';
     src: local('Avenir Next Rounded Std Regular'), local('Avenir-Next-Rounded-Std-Regular'),
-        url('index_files/AvenirNextRoundedStd-Reg.woff2') format('woff2'),
-        url('index_files/AvenirNextRoundedStd-Reg.woff') format('woff'),
-        url('index_files/AvenirNextRoundedStd-Reg.ttf') format('truetype');
+        url('15.2 Color Game_files/AvenirNextRoundedStd-Reg.woff2') format('woff2'),
+        url('15.2 Color Game_files/AvenirNextRoundedStd-Reg.woff') format('woff'),
+        url('15.2 Color Game_files/AvenirNextRoundedStd-Reg.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
   }
@@ -30,7 +34,6 @@ body
 .square
 {
 	width: 30%;
-	background-color: purple;
 	float: left;
 	padding-bottom: 30%;
 	margin: 1.66%;
@@ -48,7 +51,7 @@ button
 	font-weight: 700;
 	font-size: inherit;
 	letter-spacing: 2px;
-	color: steelblue;
+	color: var(--buttonColor);
 	outline: none;
 	transition: all 0.5s;
 }
@@ -57,7 +60,7 @@ h1
 {
 	color: white;
 	text-align: center;
-	background-color: steelblue;
+	background-color: var(--defColor);
 	margin: 0;
 	/*padding-bottom: 5%;*/
 	text-align: center;
@@ -80,7 +83,7 @@ h1
 
 .selected
 {
-	background-color: steelblue;
+	background-color: var(--defColor);
 	color: white;
 }
 
@@ -90,13 +93,24 @@ h1
 	width: 20%;
 	font-weight: 700;
 	font-size: 75%;
-	/*color: steelblue;	*/
+	/*color: var(--defColor);	*/
 	text-transform: uppercase;
 	letter-spacing: 2px;
 }
 
-button:hover
+.hover:hover
 {
-	background-color: steelblue;
+	background-color: var(--hoverColor);
 	color: white;
+}
+
+/*button:hover
+{
+	background-color: var(--defColor);
+	color:	white;
+}*/
+
+#playAgainButton
+{
+	width: 170px;
 }
