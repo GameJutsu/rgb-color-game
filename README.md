@@ -1,4 +1,4 @@
-<h1 align="right">RGB Color Game</h1><br>
+<h1>RGB Color Game</h1><br>
 
 ## Table of contents
 * [General info](#general-info)
@@ -33,3 +33,11 @@ To run this project, open this in a new tab: <a href="https://gamejutsu.github.i
 
 ## Sources
 This project is inspired by Colt Steele course "The Web Developer Bootcamp" from Udemy.
+
+## Authors
+
+* **Kumar Vaibhav** - *Initial work* - [GameJutsu](https://github.com/gamejutsu)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
