@@ -29,7 +29,7 @@ Recommended minimal browser versions:
 * Opera 55
 
 ## Setup
-To run this project, open this in a new tab: <a href="https://gamejutsu.github.io/rgb-color-game/">https://gamejutsu.github.io/rgb-color-game/</a>
+To run this project, open this in a new tab: <a href="https://gamejutsu-color-game.netlify.app">RGB-color game</a>
 
 ## Sources
 This project is inspired by Colt Steele course "The Web Developer Bootcamp" from Udemy.
