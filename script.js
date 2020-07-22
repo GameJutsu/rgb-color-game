@@ -10,6 +10,17 @@ var message = document.querySelector("#message");
 var playAgainButton = document.querySelector("#playAgainButton");
 var modeButtons = document.querySelectorAll(".mode");
 var colorCodeHead = [];
+import { CountUp } from "/countup.js";
+
+let red = new CountUp("red", 0, {
+  duration: 2,
+});
+let green = new CountUp("green", 0, {
+  duration: 2,
+});
+let blue = new CountUp("blue", 0, {
+  duration: 2,
+});
 
 init();
 
@@ -114,11 +125,15 @@ function playAgain() {
   playAgainButton.textContent = "New Colors";
   document.querySelector("h1").style.backgroundColor = "";
   message.textContent = "";
+  var prevColor = colorCodeHead;
   colors = generateRandomColors(difficulty);
   pickedColor = colors[colors[difficulty]];
   setupSquares();
   // document.querySelector("#colorDisplay").textContent = pickedColor.toUpperCase();
-  document.getElementById("red").textContent = colorCodeHead[0];
-  document.getElementById("green").textContent = colorCodeHead[1];
-  document.getElementById("blue").textContent = colorCodeHead[2];
+  // document.getElementById("red").textContent = colorCodeHead[0];
+  // document.getElementById("green").textContent = colorCodeHead[1];
+  // document.getElementById("blue").textContent = colorCodeHead[2];
+  red.update(colorCodeHead[0]);
+  green.update(colorCodeHead[1]);
+  blue.update(colorCodeHead[2]);
 }
