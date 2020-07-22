@@ -10,7 +10,7 @@ var message = document.querySelector("#message");
 var playAgainButton = document.querySelector("#playAgainButton");
 var modeButtons = document.querySelectorAll(".mode");
 var colorCodeHead = [];
-import { CountUp } from "/countup.js";
+import { CountUp } from "/assets/js/lib/countup.js";
 
 let red = new CountUp("red", 0, {
   duration: 2,
