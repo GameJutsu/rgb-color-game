@@ -1,5 +1,5 @@
 :root {
-  --defColor: steelblue;
+  --defColor: #232323;
 }
 body {
   background-color: #232323;
@@ -103,4 +103,11 @@ h1 {
 
 #playAgainButton {
   width: 170px;
+}
+
+#scores {
+  position: fixed;
+  left: 25px;
+  bottom: 25px;
+  color: #fff;
 }

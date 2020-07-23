@@ -11,6 +11,11 @@ var playAgainButton = document.querySelector("#playAgainButton");
 var modeButtons = document.querySelectorAll(".mode");
 var colorCodeHead = [];
 import { CountUp } from "/assets/js/lib/countup.js";
+const currScoreText = document.getElementById("currentScore");
+const highScoreText = document.getElementById("highscore");
+var currScore = 0;
+var won = false;
+var loss = false;
 
 let red = new CountUp("red", 0, {
   duration: 2,
@@ -34,6 +39,7 @@ function init() {
 function setupModeButtons() {
   for (var i = 0; i < 2; i++) {
     modeButtons[i].addEventListener("click", function () {
+      currScore = 0;
       this.classList.add("selected");
       //Using indexOf because i changes to 2 after loading
       modeButtons[1 - modeButtons.indexOf(this)].classList.remove("selected");
@@ -96,11 +102,17 @@ function setupSquares() {
               el.style.backgroundColor = pickedColor;
             }
           });
+          if (!won) {
+            won = true;
+            setupScores();
+          }
         } else {
           this.style.backgroundColor = bgcolor;
           message.textContent = "Try Again";
           message.style.color = "red";
           playAgainButton.textContent = "New Colors";
+          loss = true;
+          setupScores();
         }
       }
     });
@@ -111,6 +123,8 @@ function playAgain() {
   // playAgainButton.style.color = "";
   // modeButtons[(difficulty - 3) / 3].style.backgroundColor = "";
   // modeButtons[1 - (difficulty - 3) / 3].style.color = "";
+  won = false;
+  loss = false;
   document.querySelectorAll(".hover").forEach(function (el) {
     el.style.setProperty("--hoverColor", defColor);
   });
@@ -136,4 +150,29 @@ function playAgain() {
   red.update(colorCodeHead[0]);
   green.update(colorCodeHead[1]);
   blue.update(colorCodeHead[2]);
+  setupScores();
+}
+
+function setupScores() {
+  if (won) {
+    currScore++;
+  } else if (loss) {
+    currScore = 0;
+  }
+  currScoreText.textContent = `Score: ${currScore}`;
+  if (difficulty == 3) {
+    currScore >= localStorage.getItem("easyHighscore")
+      ? localStorage.setItem("easyHighscore", currScore)
+      : null;
+    highScoreText.textContent = `Highscore (Easy): ${localStorage.getItem(
+      "easyHighscore"
+    )}`;
+  } else {
+    currScore >= localStorage.getItem("hardHighscore")
+      ? localStorage.setItem("hardHighscore", currScore)
+      : null;
+    highScoreText.textContent = `Highscore (Hard): ${localStorage.getItem(
+      "hardHighscore"
+    )}`;
+  }
 }
