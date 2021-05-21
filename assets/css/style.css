@@ -1,98 +1,101 @@
 :root {
-  --defColor: #232323;
+	--defColor: #232323;
 }
 body {
-  background-color: #232323;
-  margin: 0;
-  font-family: "Avenir Next Rounded Std";
-  font-size: 125%;
+	background-color: #232323;
+	margin: 0;
+	font-family: "Avenir Next Rounded Std";
+	font-size: 125%;
 }
 
 @font-face {
-  font-family: "Avenir Next Rounded Std";
-  src: local("Avenir Next Rounded Std Regular"),
-    local("Avenir-Next-Rounded-Std-Regular"),
-    url("/assets/fonts/AvenirNextRoundedStd-Reg.woff2") format("woff2"),
-    url("/assets/fonts/AvenirNextRoundedStd-Reg.woff") format("woff"),
-    url("/assets/fonts/AvenirNextRoundedStd-Reg.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
+	font-family: "Avenir Next Rounded Std";
+	src: local("Avenir Next Rounded Std Regular"), local("Avenir-Next-Rounded-Std-Regular"),
+		url("/assets/fonts/AvenirNextRoundedStd-Reg.woff2") format("woff2"),
+		url("/assets/fonts/AvenirNextRoundedStd-Reg.woff") format("woff"),
+		url("/assets/fonts/AvenirNextRoundedStd-Reg.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
 }
 
 #colorDisplay {
-  font-size: 200%;
+	font-size: 200%;
 }
 
 #container {
-  margin: 20px auto;
-  max-width: 1000px;
-  width: 80vw;
+	margin: 20px auto;
+	max-width: 1000px;
+	width: 80vw;
 }
 
 .square {
-  width: 30%;
-  float: left;
-  padding-bottom: 30%;
-  margin: 1.66%;
-  transition: all 0.5s;
-  border-radius: 15%;
+	width: 30%;
+	float: left;
+	padding-bottom: 30%;
+	margin: 1.66%;
+	transition: all 0.5s;
+	border-radius: 15%;
+}
+
+.square:hover {
+	transform: translateY(3%);
 }
 
 button {
-  font-family: "Avenir Next Rounded Std";
-  border: none;
-  background: none;
-  text-transform: uppercase;
-  height: 100%;
-  font-weight: 700;
-  font-size: inherit;
-  letter-spacing: 2px;
-  color: var(--buttonColor);
-  outline: none;
-  transition: all 0.5s;
+	font-family: "Avenir Next Rounded Std";
+	border: none;
+	background: none;
+	text-transform: uppercase;
+	height: 100%;
+	font-weight: 700;
+	font-size: inherit;
+	letter-spacing: 2px;
+	color: var(--buttonColor);
+	outline: none;
+	transition: all 0.5s;
 }
 
 h1 {
-  color: white;
-  text-align: center;
-  background-color: var(--defColor);
-  margin: 0;
-  /*padding-bottom: 5%;*/
-  text-align: center;
-  font-weight: normal;
-  text-transform: uppercase;
-  line-height: 1.1;
-  padding: 20px 0;
-  transition: all 0.5s;
+	color: white;
+	text-align: center;
+	background-color: var(--defColor);
+	margin: 0;
+	/*padding-bottom: 5%;*/
+	text-align: center;
+	font-weight: normal;
+	text-transform: uppercase;
+	line-height: 1.1;
+	padding: 20px 0;
+	transition: all 0.5s;
 }
 
 #buttonBar {
-  background-color: white;
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  font-family: "Avenir Next Rounded Std";
-  height: 30px;
+	background-color: white;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	font-family: "Avenir Next Rounded Std";
+	height: 30px;
 }
 
 .selected {
-  background-color: var(--defColor);
-  color: white;
+	background-color: var(--defColor);
+	color: white;
 }
 
 #message {
-  display: inline-block;
-  width: 20%;
-  font-weight: 700;
-  font-size: 75%;
-  /*color: var(--defColor);	*/
-  text-transform: uppercase;
-  letter-spacing: 2px;
+	display: inline-block;
+	width: 20%;
+	font-weight: 700;
+	font-size: 75%;
+	/*color: var(--defColor);	*/
+	text-transform: uppercase;
+	letter-spacing: 2px;
 }
 
 .hover:hover {
-  background-color: var(--hoverColor);
-  color: white;
+	background-color: var(--hoverColor);
+	color: white;
 }
 
 /*button:hover
@@ -102,13 +105,13 @@ h1 {
 }*/
 
 #playAgainButton {
-  width: 170px;
+	width: 170px;
 }
 
 #scores {
-  position: fixed;
-  left: 25px;
-  bottom: 25px;
-  color: #fff;
-  font-size: 160%;
+	position: fixed;
+	left: 25px;
+	bottom: 25px;
+	color: #fff;
+	font-size: 160%;
 }
