@@ -28,7 +28,7 @@ Recommended minimal browser versions:
 * Safari 10
 * Opera 55
 
-## Setup
+## Demo
 To run this project, open this in a new tab: <a href="https://gamejutsu-color-game.netlify.app">RGB-color game</a>
 
 ## Sources
